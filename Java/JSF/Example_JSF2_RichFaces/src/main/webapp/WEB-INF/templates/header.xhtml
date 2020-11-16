@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<body>
+	<h:form id="formMenu">
+		<rich:toolbar height="26px">
+			<rich:toolbarGroup location="left" itemStyle="width:5px">
+				<h:commandButton id="cmdHome"
+					actionListener="#{MainBean.menuAction}" value="Home" />
+				<h:commandButton id="cmdPage1"
+					actionListener="#{Page1Bean.menuAction}" value="Page 1" />
+				<h:commandButton id="cmdPage2"
+					actionListener="#{Page2Bean.menuAction}" value="Page 2" />
+			</rich:toolbarGroup>
+		</rich:toolbar>
+	</h:form>
+</body>
+</html>

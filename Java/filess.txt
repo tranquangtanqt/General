@@ -1,0 +1,98 @@
+package com.mkyong.io.howto;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.util.stream.Stream;
+
+public class CopyDirectory4 {
+
+    public static void main(String[] args) {
+
+        String fromDirectory = "/home/mkyong/test/";
+        String toToDirectory = "/home/mkyong/test2/";
+
+        try {
+
+            copyDirectoryLegacyIO(
+                new File(fromDirectory),
+                new File(toToDirectory));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Done");
+
+    }
+
+    public static void copyDirectoryLegacyIO(File source, File target)
+        throws IOException {
+
+        if (source.isDirectory()) {
+
+            //if directory not exists, create it
+            if (!target.exists()) {
+                if (target.mkdir()) {
+                    System.out.println("Directory copied from "
+                            + source + "  to " + target);
+                } else {
+                    System.err.println("Unable to create directory : " + target);
+                }
+            }
+
+            // list all the directory contents, file walker
+            String[] files = source.list();
+            if (files == null) {
+                return;
+            }
+
+            for (String file : files) {
+                //construct the src and dest file structure
+                File srcFile = new File(source, file);
+                File destFile = new File(target, file);
+                //recursive copy
+                copyDirectoryLegacyIO(srcFile, destFile);
+            }
+
+        } else {
+
+            //if file, then copy it
+            //Use bytes stream to support all file types
+            InputStream in = null;
+            OutputStream out = null;
+
+            try {
+
+                in = new FileInputStream(source);
+                out = new FileOutputStream(target);
+
+                byte[] buffer = new byte[1024];
+
+                int length;
+                //copy the file content in bytes
+                while ((length = in.read(buffer)) > 0) {
+                    out.write(buffer, 0, length);
+                }
+
+                System.out.println("File copied from " + source + " to " + target);
+
+            } catch (IOException e) {
+
+                System.err.println("IO errors : " + e.getMessage());
+
+            } finally {
+                if (in != null) {
+                    in.close();
+                }
+
+                if (out != null) {
+                    out.close();
+                }
+            }
+        }
+
+    }
+
+}

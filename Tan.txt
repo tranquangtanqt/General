@@ -1,0 +1,5 @@
+$date = new DateTime('-1 year');
+echo $date->format('Y-m-d H:i:s');
+
+xóa tất cả các ký tự sau số 1 trong notepad => 1.*
+

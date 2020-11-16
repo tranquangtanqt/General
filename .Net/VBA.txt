@@ -1,0 +1,55 @@
+Sub Button1_Click()
+    Dim i, j As Integer
+    i = 1
+    j = 1
+    Do While Len(Cells(i, 1).Value) <> 0
+        Dim str As String
+        str = ""
+        If InStr(Cells(i, 2).Value, "SMALLSERIAL") = 1 Then
+            str = removeUnderLine(Cells(i, 1).Value)
+            Cells(i, 4).Value = "public short " & str & " { get; set; }"
+        End If
+        
+        If InStr(Cells(i, 2).Value, "SERIAL") = 1 Then
+            str = removeUnderLine(Cells(i, 1).Value)
+            Cells(i, 4).Value = "public int " & str & " { get; set; }"
+        End If
+        
+        If InStr(Cells(i, 2).Value, "smallint") = 1 Then
+            str = removeUnderLine(Cells(i, 1).Value)
+            Cells(i, 4).Value = "public short " & str & " { get; set; }"
+        End If
+        
+        If InStr(Cells(i, 2).Value, "integer") = 1 Then
+            str = removeUnderLine(Cells(i, 1).Value)
+            Cells(i, 4).Value = "public int " & str & " { get; set; }"
+        End If
+        
+        If InStr(Cells(i, 2).Value, "character") = 1 Then
+            str = removeUnderLine(Cells(i, 1).Value)
+            Cells(i, 4).Value = "public String " & str & " { get; set; }"
+        End If
+        
+        i = i + 1
+    Loop
+    
+End Sub
+
+Function removeUnderLine(str As String) As String
+    Dim i As Integer
+    i = 1
+    Dim rs As String
+    Do While i <= Len(str)
+        Dim ch As String
+        ch = Mid(str, i, 1)
+        If StrComp(ch, "_", vbBinaryCompare) = 0 Then
+             ch = Mid(str, i + 1, 1)
+             rs = rs & UCase(ch)
+             i = i + 1
+        Else
+             rs = rs & ch
+        End If
+        i = i + 1
+    Loop
+    removeUnderLine = rs
+End Function

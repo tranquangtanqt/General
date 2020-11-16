@@ -1,0 +1,3 @@
+Tự động thêm \n và nối chuỗi khi copy và paste string
+Window => references => Java => editor => typing => escape text when pasting into a string literal
+Video hướng dẫn: https://www.youtube.com/watch?v=5geTkRyS0eQ

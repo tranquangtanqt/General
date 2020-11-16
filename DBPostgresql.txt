@@ -1,0 +1,16 @@
+Thêm vào file C:\Program Files\PostgreSQL\12\data\postgresql.conf
+
+host    all             all              0.0.0.0/0                       md5
+host    all             all              ::/0                            md5
+
+
+Vào C:\Program Files\PostgreSQL\12\bin
+mở CMD:
+backup DB PostgreSQL: 
+	pg_dump -h localhost -p 5432 -U postgres prototype_origin > D:\backup.dump
+restore DB PostgreSQL:
+	psql -U postgres -d demo < D:\backup.dump
+
+
+psql -U postgres -d elearning < D:\Project\202010_Elearning_PHP\SVN\DOC\02 DB\elearning.dump
+
