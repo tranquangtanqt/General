@@ -1,3 +1,11 @@
 Tự động thêm \n và nối chuỗi khi copy và paste string
 Window => references => Java => editor => typing => escape text when pasting into a string literal
 Video hướng dẫn: https://www.youtube.com/watch?v=5geTkRyS0eQ
+
+Add view file .class
+https://github.com/java-decompiler/jd-eclipse#how-to-check-the-file-associations-
+	+ Download: http://java-decompiler.github.io
+	+ Install
+	+ Click on "Window > Preferences > General > Editors > File Associations"
+		"*.class" : Eclipse "Class File Viewer" is selected by default.
+		"*.class without source" : "JD Class File Viewer" is selected by default.

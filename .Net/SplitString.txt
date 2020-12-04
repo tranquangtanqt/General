@@ -1,0 +1,1 @@
+var input = dictStrOutLine["INPUT"].Split(new String[] { "\n\r" }, System.StringSplitOptions.RemoveEmptyEntries);
