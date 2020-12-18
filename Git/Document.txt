@@ -1,0 +1,11 @@
+folder config git: C:\Users\tantq.AUREOLE.000\.gitconfig
+[user]
+	name = tantq
+	email = tantq@aureole.local
+# Please adapt and uncomment the following lines:
+#	name = tranquangtanqt
+#	email = tranquangtanqt1990@gmail.com
+
+show config: git config --list
+git config --global user.name "FIRST_NAME LAST_NAME"
+git config --global user.email "MY_NAME@example.com"
