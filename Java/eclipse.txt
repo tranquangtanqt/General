@@ -9,3 +9,8 @@ https://github.com/java-decompiler/jd-eclipse#how-to-check-the-file-associations
 	+ Click on "Window > Preferences > General > Editors > File Associations"
 		"*.class" : Eclipse "Class File Viewer" is selected by default.
 		"*.class without source" : "JD Class File Viewer" is selected by default.
+
+
+hotkey:
+Collapse All: Ctrl + Shift + / (chia)
+	      Ctrl + Shift + * (nhân)
